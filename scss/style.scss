@@ -1,0 +1,198 @@
+@import '../font/fonts.css';
+body{
+    margin:0px;
+}
+
+$globaldelay:5s;
+
+*{
+    box-sizing: border-box;
+}
+h1{
+    padding:0px;
+    margin:0px;
+}
+#Main{
+    position:relative;
+    height:100vh;
+    padding:50px;
+    overflow:hidden;
+    .images{
+        .ballon{
+            position:absolute;
+            margin-top:50px;
+
+            &.ballon-1{
+                right:300px;
+                animation-name:ballonUp;
+                animation-duration:10s;
+                animation-iteration-count:infinite;
+                animation-timing-function: ease-in-out;
+                animation-delay:$globaldelay+2s;
+            }
+            &.ballon-2{
+                right:150px;
+                animation-name:ballonUp2;
+                animation-duration:10s;
+                animation-iteration-count:infinite;
+                animation-timing-function: ease-in-out;
+                animation-delay:$globaldelay+5s;
+            }
+            &.ballon-3{
+                right:0px;
+                animation-name:ballonUp3;
+                animation-duration:10s;
+                animation-iteration-count:infinite;
+                animation-timing-function: ease-in-out;
+                animation-delay:$globaldelay+10s;
+            }
+            &.ballon-4{
+                right:450px;
+                animation-name:ballonUp2;
+                animation-duration:10s;
+                animation-iteration-count:infinite;
+                animation-timing-function: ease-in-out;
+                animation-delay:$globaldelay+12s;
+            }
+            &.ballon-3{
+                right:600px;
+                animation-name:ballonUp3;
+                animation-duration:10s;
+                animation-iteration-count:infinite;
+                animation-timing-function: ease-in;
+                animation-delay:$globaldelay+15s;
+            }
+
+        }
+    }
+}
+
+@keyframes ballonUp{
+    from{
+        transform:translateY(0px) rotate(0deg);
+    }
+    to{
+        transform:translateY(-250vh) rotate(10deg);
+    }
+}
+
+@keyframes ballonUp2{
+    from{
+        transform:translateY(0px) translateX(0px) rotate(0deg);
+    }
+    to{
+        transform:translateY(-250vh) translateX(-15px) rotate(-7deg);
+    }
+}
+
+@keyframes ballonUp3{
+    from{
+        transform:translateY(0px) translateX(0px) rotate(0deg);
+    }
+    to{
+        transform:translateY(-250vh) translateX(15px) rotate(8deg);
+    }
+}
+
+
+#Inner{
+    background-color:rgb(86, 79, 190);
+    background-image:url('/img/xfiles.jpg');
+    background-size:cover;
+    height:100%;
+    display:grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr;
+    transform:scale(0.90);
+    opacity:0;
+    animation-name:inner;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+    @keyframes inner{
+        from{
+            transform:scale(0.90);
+            opacity:0;
+        }
+        to{
+            transform:scale(1);
+            opacity:1;
+        }
+    }
+    #Text{
+        font-size: 2rem;
+        h1{
+            transform:translateX(-50px);
+            opacity:0;
+            animation-name:title;
+            animation-duration:2s;
+            animation-fill-mode: forwards;
+            //font-family: "Frutiger CE 55 Roman";
+            font-family: "frutiger_ce_55_romanbold";
+            color:white;
+            text-shadow:5px 5px 5px rgba(0,0,0,0.25);
+            animation-delay:2s;
+            span{
+                text-transform: uppercase;   
+                font-family: "frutiger_ce_55_romanregular";
+
+            }
+        }
+        @keyframes title{
+            from{
+                transform:translateX(-50px);
+                opacity:0;
+            }
+            to{
+                transform:translateX(0px);
+                opacity:1;
+            }
+        }
+    }
+}
+
+.mention{
+    font-family: "frutiger_ce_55_romanregular";
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.top-secret{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    z-index: 1000;
+    animation-name:stamp;
+    animation-duration:0.1s;
+    animation-fill-mode: forwards;
+    animation-delay:1s;
+    opacity:0;
+    transform:scale(1.1);
+    transform-origin: center center;
+ 
+}
+.classified{
+    position:absolute;
+    right:0px;
+    z-index: 1000;
+    top:0px;
+    animation-name:stamp;
+    animation-duration:0.1s;
+    animation-fill-mode: forwards;
+    animation-delay:1.5s;
+    opacity:0;
+    transform:scale(1.1);
+    transform-origin: center center;
+}
+
+@keyframes stamp{
+    from{
+        opacity:0;
+        transform:scale(1.1);
+
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
